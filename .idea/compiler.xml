@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="product-service (2) (com.MicroserviceProject)" />
+        <module name="wishlist-service (2) (com.MicroserviceProject)" />
+        <module name="cart-service" />
+        <module name="wishlist-service (1) (wishlist.example)" />
+        <module name="cart-service (1) (com.MicroserviceProject)" />
+        <module name="product-service" />
+        <module name="user-service" />
+        <module name="user-service (2) (com.MicroserviceProject)" />
+        <module name="feedback-service" />
+        <module name="feedback-service (1) (com.MicroserviceProject)" />
+        <module name="eureka-server" />
+        <module name="wishlist-service" />
+        <module name="wishlist-service (1) (com.MicroserviceProject)" />
+        <module name="order-service (1) (com.MicroserviceProject)" />
+        <module name="product-service (1) (com.MicroserviceProject)" />
+        <module name="cart-service (2) (com.MicroserviceProject)" />
+        <module name="api-gateway" />
+        <module name="order-service" />
+        <module name="user-service (1) (com.MicroserviceProject)" />
+        <module name="order-service (2) (com.MicroserviceProject)" />
+        <module name="feedback-service (2) (com.MicroserviceProject)" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cart-service (1) (com.cartService)" target="21" />
+      <module name="feedback-service (1) (com.FeedbackService)" target="21" />
+      <module name="Front-End" target="21" />
+      <module name="FrontEndApplication" target="21" />
+      <module name="order-service (1) (com.orderService)" target="21" />
+      <module name="product-service (1) (com.example)" target="21" />
+      <module name="user-service (1) (com.example)" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="FrontEndApplication" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="cart-service" options="-parameters" />
+      <module name="cart-service (1) (com.MicroserviceProject)" options="-parameters" />
+      <module name="cart-service (1) (com.cartService)" options="-parameters" />
+      <module name="cart-service (2) (com.MicroserviceProject)" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="feedback-service" options="-parameters" />
+      <module name="feedback-service (1) (com.FeedbackService)" options="-parameters" />
+      <module name="feedback-service (1) (com.MicroserviceProject)" options="-parameters" />
+      <module name="feedback-service (2) (com.MicroserviceProject)" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="order-service (1) (com.MicroserviceProject)" options="-parameters" />
+      <module name="order-service (1) (com.orderService)" options="-parameters" />
+      <module name="order-service (2) (com.MicroserviceProject)" options="-parameters" />
+      <module name="product-service" options="-parameters" />
+      <module name="product-service (1) (com.MicroserviceProject)" options="-parameters" />
+      <module name="product-service (1) (com.example)" options="-parameters" />
+      <module name="product-service (2) (com.MicroserviceProject)" options="-parameters" />
+      <module name="user-service" options="-parameters" />
+      <module name="user-service (1) (com.MicroserviceProject)" options="-parameters" />
+      <module name="user-service (1) (com.example)" options="-parameters" />
+      <module name="user-service (2) (com.MicroserviceProject)" options="-parameters" />
+      <module name="wishlist-service" options="-parameters" />
+      <module name="wishlist-service (1) (com.MicroserviceProject)" options="-parameters" />
+      <module name="wishlist-service (1) (wishlist.example)" options="-parameters" />
+      <module name="wishlist-service (2) (com.MicroserviceProject)" options="-parameters" />
+    </option>
+  </component>
+</project>

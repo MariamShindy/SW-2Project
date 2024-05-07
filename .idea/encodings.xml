@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Cookies-SpringBoot/FrontEnd/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Cookies-SpringBoot/cart-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Cookies-SpringBoot/feedback-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Cookies-SpringBoot/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Cookies-SpringBoot/product-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Cookies-SpringBoot/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Front-End/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Front-End/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/apis-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/cart-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/discovery-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/feedback-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/order-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/product-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/wishlist-service/src/main/java" charset="UTF-8" />
+  </component>
+</project>

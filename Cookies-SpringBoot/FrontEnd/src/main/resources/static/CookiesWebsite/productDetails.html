@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="shortcut icon" href="images/Favicon.jpg" type="image/x-icon">
+      <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+    <title>
+      COOKIES 
+    </title>
+  </head>
+  <body>
+    <div class="hero_areaME">
+      <!-- header section strats -->
+      <header class="header_section">
+        <nav class="navbar navbar-expand-lg custom_nav-container "> 
+          <a class="navbar-brand" href="index.html">
+            <span>
+              COOKIES STORE
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">
+                  Shop
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="wishList.html">
+                  WISH LIST
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Orders.html">
+                 Orders
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutUs.html">
+                  ABOUT US
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+            </ul>
+            <div class="user_option">
+              <a href="index.html">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <span>
+                  Logout
+                </span>
+              </a>
+              <a href="cart.html">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+              </a>
+              <form class="form-inline ">
+                <button class="btn nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!-- end header section -->
+  </div>
+      <main class="containerME">
+
+        <!-- Left Column / Headphones Image -->
+        <div class="left-columnME">
+          <a href="wishList.html"><div class="wishlist-icon" onclick="addToWishlist()"></div></a>
+          <img data-image="black" src="images/black.png" alt="">
+          <img data-image="blue" src="images/blue.png" alt="">
+          <img data-image="red" class="activeME" src="images/six.webp" alt="" height="500px">
+      </div>
+        <!-- Right Column -->
+        <div class="right-columnME">
+          <!-- Product Description -->
+          <div class="product-descriptionME">
+              <h1 id="productName" style="font-weight: 500;font-size: 30px;"></h1>
+              <p id="productPrice"></p>
+              <p id="productDescription"></p>
+            </div>
+          <h2>Quantity</h2>
+    <p>Selected Quantity: <span id="quantity">0</span></p>
+    <button class="plusME" style="background-color: rgb(194, 65, 65);" onclick="decrement()">-</button>
+    <div class="quantityDisplayME">
+      <span id="quantityDisplay" >0</span>
+    </div>
+    <button class="plusME"  style="background-color: rgb(91, 148, 91);" onclick="increment()">+</button>
+    <script>
+      let currentQuantity = 0;
+      function increment() {
+        currentQuantity++;
+        updateQuantityDisplay();
+      }
+      function decrement() {
+        if (currentQuantity > 0) {
+          currentQuantity--;
+          updateQuantityDisplay();
+        }
+      }
+      function updateQuantityDisplay() {
+        document.getElementById('quantity').innerText = currentQuantity;
+        document.getElementById('quantityDisplay').innerText = currentQuantity;
+      }
+      function addToWishlist(element) {
+        // You can implement the logic to add the product to the wishlist here
+        alert('Product added to wishlist!');
+    }
+    </script>
+          <!-- Product Configuration -->
+          <div class="product-configurationME">
+            <!-- Cable Configuration -->
+          </div>
+          <!-- Product Pricing -->
+          <div class="add-to-cartME">
+            <a href="#" class="cart-btnME"style="color: rgb(97, 63, 99); ">Add to cart</a>
+          </div>
+        </div>
+      </main>
+      <!-- Scripts -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+      
+      <script>
+    // Function to fetch product details by product ID
+    function fetchProductDetails(productId) {
+      fetch(`http://localhost:9093/api/product/api/products/${productId}`)
+        .then(response => response.json())
+        .then(product => {
+          // Update HTML elements with product details
+          document.getElementById('productImage').src = product.image;
+          document.getElementById('productName').innerText = product.name;
+          document.getElementById('productPrice').innerText = `$${product.price}`;
+          document.getElementById('productDescription').innerText = product.description;
+        })
+        .catch(error => console.error('Error fetching product details:', error));
+    }
+ // Call fetchProductDetails() when the page is loaded
+ window.onload = () => {
+      // Retrieve product ID from URL query parameter
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id');
+      // Fetch product details using the retrieved product ID
+      fetchProductDetails(productId);
+    };
+        </script>
+      <script src="script.js" charset="utf-8">
+        $(document).ready(function() {
+  
+  $('.color-choose input').on('click', function() {
+      var headphonesColor = $(this).attr('data-image');
+  
+      $('.activeME').removeClass('activeME');
+      $('.left-columnME img[data-image = ' + headphonesColor + ']').addClass('activeME');
+      $(this).addClass('activeME');
+  });
+  
+  });
+      </script>
+          <br> <br> <br> <br> <br>
+        <!-- info section -->
+  <section class="info_section  layout_padding2-top">
+    <div class="social_container">
+      <div class="social_box">
+        <a href="">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="">
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <div class="info_container ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              ABOUT US
+            </h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="info_form ">
+              <h5>
+                Newsletter
+              </h5>
+              <form action="#">
+                <input type="email" placeholder="Enter your email">
+                <button>
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              NEED HELP
+            </h6>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet,
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <h6>
+              CONTACT US
+            </h6>
+            <div class="info_link-box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span> Gb road 123 london Uk </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>+01 12345678901</span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span> demo@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer section -->
+    <footer class=" footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span>  2035 by Cookies Store.          
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+  </section>
+  <!-- end info section -->
+  </body>
+</html>

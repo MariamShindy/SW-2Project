@@ -1,0 +1,5 @@
+Class diagram
+ocl
+erd + mapping
+Feedback mangement for admin 
+Validation quantity , phone call , address
