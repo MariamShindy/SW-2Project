@@ -1,22 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Microservices",
-    "\\Microservices\\cart-service",
-    "\\Microservices\\cart-service\\src",
-    "\\Microservices\\cart-service\\src\\main",
-    "\\Microservices\\cart-service\\src\\main\\java",
-    "\\Microservices\\cart-service\\src\\main\\java\\com",
-    "\\Microservices\\cart-service\\src\\main\\java\\com\\CartService",
-    "\\Microservices\\cart-service\\src\\main\\java\\com\\CartService\\service",
-    "\\Microservices\\user-service",
-    "\\Microservices\\user-service\\src",
-    "\\Microservices\\user-service\\src\\main",
-    "\\Microservices\\user-service\\src\\main\\java",
-    "\\Microservices\\user-service\\src\\main\\java\\com",
-    "\\Microservices\\user-service\\src\\main\\java\\com\\UserService",
-    "\\Microservices\\user-service\\src\\main\\java\\com\\UserService\\Secuirty"
+    ""
   ],
-  "SelectedNode": "\\Microservices\\cart-service\\src\\main\\java\\com\\CartService\\service\\CartService.java",
+  "SelectedNode": "\\C:\\Users\\MAKKA\\Source\\Repos\\SW-2Project",
   "PreviewInSolutionExplorer": false
 }

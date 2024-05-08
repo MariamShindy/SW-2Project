@@ -1,4 +1,4 @@
-package com.productService.config;
+package com.productService.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

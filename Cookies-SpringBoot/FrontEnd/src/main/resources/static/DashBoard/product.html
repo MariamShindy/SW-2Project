@@ -271,7 +271,7 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Image</th>
-                    <th>Action</th>
+                    
                 </thead>
                 <tbody>
                   <!-- Product rows will be appended here -->
@@ -327,18 +327,6 @@ $(document).ready(function() {
                 // Clear existing table rows
                 $("#productTable tbody").empty();       
                 // Define the dropdown button HTML
-                var dropdownButton = `
-                        <span class="p-relative">
-                            <button type="button" title="More info">
-                                <div class="sr-only">More info</div>
-                                <i data-feather="more-horizontal" aria-hidden="true"></i>
-                            </button>
-                            <ul class="users-item-dropdown dropdown">
-                                <li><button onclick="deleteRow('row' + index)">Delete</button></li>
-                            </ul>
-                        </span>
-                    
-                `;
                 $.each(data, function(index, product) {
                     var newRow = `
                         <tr>
@@ -347,7 +335,6 @@ $(document).ready(function() {
                             <td>${product.price}</td>
                             <td>${product.availableQuantity}</td>
                             <td><img src="${product.image}" alt="Product Image"></td>
-                            <td>${dropdownButton}</td>
                         </tr>
                     `;
                     $("#productTable tbody").append(newRow);
