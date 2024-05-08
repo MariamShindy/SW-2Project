@@ -20,7 +20,7 @@ public class ProductController {
     private ProductService productService;
     @Autowired
     private RestTemplate restTemplate;
-    @RequestMapping(value = "/createProduct", method = RequestMethod.POST, consumes={MediaType.APPLICATION_JSON_VALUE})
+    @RequestMapping(value = "/createProduct", method = RequestMethod.POST)
     @PostMapping("/createProduct")
     @ResponseStatus(HttpStatus.CREATED)
     public void createProduct(@RequestBody ProductRequest productRequest){

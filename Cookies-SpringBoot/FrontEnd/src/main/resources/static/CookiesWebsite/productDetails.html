@@ -21,6 +21,42 @@
     <title>
       COOKIES 
     </title>
+    <style>
+        #productTable {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* Style the table rows */
+        #productTable tr {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        /* Style the table cells */
+        #productTable td {
+            flex: 1;
+            padding: 1px;
+        }
+
+        /* Style the table header */
+        #productTable th {
+            padding: 1px;
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Style the product image */
+        #productTable img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 5px;
+        }
+  </style>
   </head>
   <body>
     <div class="hero_areaME">
@@ -88,20 +124,36 @@
       <main class="containerME">
 
         <!-- Left Column / Headphones Image -->
-        <div class="left-columnME">
-          <a href="wishList.html"><div class="wishlist-icon" onclick="addToWishlist()"></div></a>
+        <!--
+
           <img data-image="black" src="images/black.png" alt="">
           <img data-image="blue" src="images/blue.png" alt="">
-          <img data-image="red" class="activeME" src="images/six.webp" alt="" height="500px">
-      </div>
-        <!-- Right Column -->
-        <div class="right-columnME">
-          <!-- Product Description -->
-          <div class="product-descriptionME">
-              <h1 id="productName" style="font-weight: 500;font-size: 30px;"></h1>
-              <p id="productPrice"></p>
-              <p id="productDescription"></p>
-            </div>
+          <img data-image="red" class="activeME" src="images/six.webp" alt="" height="500px">-->
+     <div class="left-columnME">
+          <a href="wishList.html"><div class="wishlist-icon" onclick="addToWishlist()"></div></a>
+          
+        </div>
+
+
+<!--
+          <div class="product-descriptionME" id="productDetails">
+            <h1 id="productName" style="font-weight: 500;font-size: 30px;"></h1>
+            <p id="productPrice"></p>
+            <p id="productDescription"></p>
+          </div>-->
+
+    </head>
+    
+          <!-- Product Configuration -->
+          <div class="product-configurationME">
+    <body>
+        <table id="productTable">
+            <tbody>
+                <!-- Product details will be appended here -->
+            </tbody>
+        </table>
+        
+        <div class="right-columnME"></div>
           <h2>Quantity</h2>
     <p>Selected Quantity: <span id="quantity">0</span></p>
     <button class="plusME" style="background-color: rgb(194, 65, 65);" onclick="decrement()">-</button>
@@ -109,6 +161,8 @@
       <span id="quantityDisplay" >0</span>
     </div>
     <button class="plusME"  style="background-color: rgb(91, 148, 91);" onclick="increment()">+</button>
+    
+    
     <script>
       let currentQuantity = 0;
       function increment() {
@@ -125,46 +179,121 @@
         document.getElementById('quantity').innerText = currentQuantity;
         document.getElementById('quantityDisplay').innerText = currentQuantity;
       }
-      function addToWishlist(element) {
-        // You can implement the logic to add the product to the wishlist here
-        alert('Product added to wishlist!');
-    }
     </script>
-          <!-- Product Configuration -->
-          <div class="product-configurationME">
+
+
             <!-- Cable Configuration -->
-          </div>
+
           <!-- Product Pricing -->
-          <div class="add-to-cartME">
-            <a href="#" class="cart-btnME"style="color: rgb(97, 63, 99); ">Add to cart</a>
+          <div class="add-to-cartME" >
+            <a href="#" class="cart-btnME"style="color: rgb(97, 63, 99); " onclick="addToCart()">Add to cart</a>
           </div>
         </div>
       </main>
       <!-- Scripts -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-      
-      <script>
-    // Function to fetch product details by product ID
-    function fetchProductDetails(productId) {
-      fetch(`http://localhost:9093/api/product/api/products/${productId}`)
-        .then(response => response.json())
-        .then(product => {
-          // Update HTML elements with product details
-          document.getElementById('productImage').src = product.image;
-          document.getElementById('productName').innerText = product.name;
-          document.getElementById('productPrice').innerText = `$${product.price}`;
-          document.getElementById('productDescription').innerText = product.description;
-        })
-        .catch(error => console.error('Error fetching product details:', error));
-    }
- // Call fetchProductDetails() when the page is loaded
- window.onload = () => {
-      // Retrieve product ID from URL query parameter
-      const params = new URLSearchParams(window.location.search);
-      const productId = params.get('id');
-      // Fetch product details using the retrieved product ID
+
+    <script>
+        // Function to fetch and update the product details in the table
+        function fetchProductDetails(productId) {
+            var url = `http://127.0.0.1:9093/api/product/api/products/${productId}`;
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json",
+                success: function(product) {
+                    // Clear existing table rows
+                    $("#productTable").empty();
+                    // Append product details to the table
+                    var newRow = `
+                    <tr>
+                            <td><img src="${product.image}" alt="Product Image"></td>
+                        </tr>
+                        <tr>
+                            <td><h1 style="font-weight: 500;font-size: 30px;">${product.name}</h1></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 200;font-size: 30px;">${product.description}</td>
+                        </tr>
+                       
+                        <tr> 
+                            <td style="font-weight: 150;font-size: 20px;">${product.price}L.E</td>
+                        </tr>
+                        
+                    `;
+                    $("#productTable").append(newRow);
+                },
+                error: function() {
+                    alert("Error fetching product details.");
+                }
+            });
+        }
+
+        // Call fetchProductDetails() when the page is loaded
+        $(document).ready(function() {
+      const productId = getProductIdFromURL();
       fetchProductDetails(productId);
-    };
+    });
+
+    // Add to Cart function
+    function addToCart() {
+      const userId = 2;
+      const productId = getProductIdFromURL();
+      const quantity = currentQuantity;
+      
+      fetch(`http://localhost:9090/api/cart/addToCart/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          productId: productId,
+          quantity: quantity
+        })
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Product added to cart!');
+          window.location.href = 'http://127.0.0.1:5500/Cookies-SpringBoot/FrontEnd/src/main/resources/static/CookiesWebsite/cart.html';
+        } else {
+          alert('Failed to add product to cart');
+        }
+      })
+      .catch(error => console.error('Error:', error));
+    }
+
+    // Utility function to get product ID from URL
+    function getProductIdFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('id');
+    }
+
+    // JavaScript function to add items to the wishlist
+function addToWishlist() {
+  const userId = 2; // Assuming the user is logged in
+  const productId = getProductIdFromURL();
+  
+  fetch(`http://localhost:9090/api/wishlist/addToWishlist/${userId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      productId: productId
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Product added to wishlist!');
+      indow.location.href = 'http://127.0.0.1:5500/Cookies-SpringBoot/FrontEnd/src/main/resources/static/CookiesWebsite/wishlist.html';
+         } else {
+      alert('Failed to add product to wishlist');
+    }
+  })
+  .catch(error => console.error('Error:', error));
+}
+
+  </script>
         </script>
       <script src="script.js" charset="utf-8">
         $(document).ready(function() {

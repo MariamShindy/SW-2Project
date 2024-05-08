@@ -210,17 +210,16 @@
         <div class="row">
           <div class="col-lg-9">
             <div class="users-table table-wrapper">
-              <table class="posts-table" id="myTable">
+              <table class="posts-table" id="users">
                 <thead>
                   <tr class="users-table-info">
                     <th>User</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Action</th>
+                    <th>ID</th>
+                    <th>Email</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr id="row1">
+                  <!--<tr id="row1">
                     <td>
                       <div class="pages-table-img">
                         <picture><source srcset="img/avatar/avatar-face-04.webp" type="image/webp"><img src="img/avatar/avatar-face-04.png" alt="User Name"></picture>
@@ -241,11 +240,46 @@
                         </ul>
                       </span>
                     </td>
-                  </tr>
+                  </tr>-->
                 
                   
                 </tbody>
               </table>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+      function updateTable() {  
+        var url = "http://127.0.0.1:9094/api/user/all";
+        $.ajax({
+            url: url,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                $("#users tbody").empty();      
+                $.each(data, function(index, user) {
+                    var newRow = `
+                        <tr>
+                            <td>${user.firstName}</td>
+                            <td>${product.id}</td>
+                            <td>${product.email}</td>
+                        </tr>
+                    `;
+                    $("#users tbody").append(newRow);
+                });
+            },
+            error: function() {
+                alert("Error fetching product data.");
+            }
+        });
+    }
+
+    // Call the updateTable function when the page is loaded
+    $(document).ready(function() {
+        updateTable();
+    });
+</script>
+
+
             </div>
           </div>
         </div>
